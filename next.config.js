@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // If you have other configs, keep them here
   reactStrictMode: true,
   swcMinify: true,
-}
 
-module.exports = nextConfig
-
-typescript: {
+  typescript: {
     ignoreBuildErrors: false,
   },
   eslint: {
@@ -18,8 +14,7 @@ typescript: {
     domains: [],
     unoptimized: true,
   },
-  // Optimize for production
-  swcMinify: true,
+
   webpack: (config, { isServer }) => {
     // Handle audio files
     config.module.rules.push({
