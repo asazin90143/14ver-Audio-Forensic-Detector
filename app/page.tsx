@@ -398,18 +398,28 @@ export default function AudioForensicDetector() {
     return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`
   }
 
-  const checkMicrophoneSupport = () => {
-    const isSupported = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
-    const isSecure = window.isSecureContext
-    const hasMediaRecorder = typeof MediaRecorder !== "undefined"
-
+ const checkMicrophoneSupport = () => {
+  if (typeof window === "undefined" || typeof navigator === "undefined") {
     return {
-      isSupported,
-      isSecure,
-      hasMediaRecorder,
-      canRecord: isSupported && isSecure && hasMediaRecorder,
+      isSupported: false,
+      isSecure: false,
+      hasMediaRecorder: false,
+      canRecord: false,
     }
   }
+
+  const isSupported = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+  const isSecure = window.isSecureContext
+  const hasMediaRecorder = typeof MediaRecorder !== "undefined"
+
+  return {
+    isSupported,
+    isSecure,
+    hasMediaRecorder,
+    canRecord: isSupported && isSecure && hasMediaRecorder,
+  }
+}
+
 
   return (
     <div className="min-h-screen bg-gray-50">
