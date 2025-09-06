@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    appDir: true,
+    // keep other experimental flags if any, but remove appDir
   },
-  typescript: {
+}
+typescript: {
     ignoreBuildErrors: false,
   },
   eslint: {
