@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    // keep other experimental flags if any, but remove appDir
-  },
+  // If you have other configs, keep them here
+  reactStrictMode: true,
+  swcMinify: true,
 }
+
+module.exports = nextConfig
+
 typescript: {
     ignoreBuildErrors: false,
   },
