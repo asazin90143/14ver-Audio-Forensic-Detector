@@ -319,8 +319,8 @@ export default function SonarView({ audioData }: SonarViewProps) {
             projected: project3D(x, y, z),
           }
         })
-        .filter((event) => event.projected.z > -perspective)
-        .sort((a, b) => b.projected.z - a.projected.z) // Sort by depth for proper rendering
+        .filter((event: any) => event.projected.z > -perspective)
+        .sort((a: any, b: any) => b.projected.z - a.projected.z) // Sort by depth for proper rendering
 
       soundEvents3D.forEach((event: any, index: number) => {
         const { projected } = event
